@@ -10,3 +10,12 @@ steps:
     inputs:
       command: 'build'
       projects: "**/*.sln"
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet publish'
+    inputs:
+      command: 'publish'
+      publishWebProjects: false
+      projects: 'src/Presentation/Nop.Web/Nop.Web.csproj'
+      arguments: '-o $(Build.ArtifactStagingDirectory)/Output'
+      zipAfterPublish: true
+      modifyOutputPath: true
