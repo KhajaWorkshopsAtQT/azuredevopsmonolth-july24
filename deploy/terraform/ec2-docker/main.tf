@@ -6,7 +6,7 @@ data "aws_vpc" "default" {
 
 # security group to open all the inbound ports
 resource "aws_security_group" "allow_all" {
-  name        = "allow_all_for_docker"
+  name        = "allow_all_for_tf"
   description = "Allow all inbound traffic"
   vpc_id      = data.aws_vpc.default.id
 
